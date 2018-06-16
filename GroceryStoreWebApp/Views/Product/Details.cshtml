@@ -1,0 +1,59 @@
+﻿@using GroceryStoreWebApp.Models
+@model GroceryStoreWebApp.Models.ProductModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>ProductModel</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Upc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Upc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ComNo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ComNo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OrdRef)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OrdRef)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Supplier)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Supplier)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to list", "Search", "Product", new { SearchToken = Model.SearchToken }, null)
+</p>

@@ -1,0 +1,17 @@
+﻿@using GroceryStoreWebApp.Models
+@model GroceryStoreWebApp.Models.ProductModel
+
+@{
+    ViewBag.Title = "Search Products";
+}
+
+<h2>Search Products</h2>
+
+<p>
+    @Html.ActionLink("Create New Product", "Create")
+    @using (Html.BeginForm("Search", "Product"))
+    {
+        @Html.TextBox("SearchToken")
+        <input type="submit" value="Search" /> <br />
+    }
+</p>

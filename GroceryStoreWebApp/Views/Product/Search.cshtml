@@ -1,0 +1,65 @@
+﻿@using GroceryStoreWebApp.Models
+@model GroceryStoreWebApp.Models.ProductModel
+
+@{
+    ViewBag.Title = "Search Products";
+}
+
+<h2>Search Products</h2>
+
+<p>
+    @Html.ActionLink("Create New Product", "Create", "Product", new { SearchToken = Model.SearchToken }, null)
+    @using (Html.BeginForm("Search", "Product"))
+    {
+        @Html.TextBox("SearchToken")
+        <input type="submit" value="Search" /> <br />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Upc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OrdRef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Supplier)
+        </th>
+        <th></th>
+    </tr>
+    @if (Model != null)
+    {
+        foreach (var item in Model.ProductList)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Upc)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ComNo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.OrdRef)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Supplier)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Id, SearchToken = Model.SearchToken }, null) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Id, SearchToken = Model.SearchToken }, null) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Id, SearchToken = Model.SearchToken }, null)
+                </td>
+            </tr>
+        }
+    }
+</table>
